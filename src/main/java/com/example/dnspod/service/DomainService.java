@@ -63,13 +63,14 @@ public class DomainService {
             return "无需更新:" +mappint;
         }
         log.info("当前IP{}不等于记录IP{}", curentIp, records.getValue());
+        System.out.println(curentIp + ":" + records.getValue());
         map.put("record_id", records.getId());
         String post = HttpUtil.post(domainConfig.getRecoredModify(), map);
         RecordUpdate recordUpdate = JSONUtil.toBean(post, RecordUpdate.class);
         if(recordUpdate.getStatus().getCode().equals("1")){
             return "更新成功" +mappint;
         }
-        return recordUpdate.toString();
+        return "更新失败："+ recordUpdate.toString();
 
     }
 

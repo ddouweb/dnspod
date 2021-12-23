@@ -1,6 +1,7 @@
 package com.example.dnspod.scheduled;
 
 import com.example.dnspod.service.DomainService;
+import lombok.extern.java.Log;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
