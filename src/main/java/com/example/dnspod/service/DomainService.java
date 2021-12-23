@@ -7,6 +7,7 @@ import com.example.dnspod.config.DomainConfig;
 import com.example.dnspod.entry.Record;
 import com.example.dnspod.entry.RecordCreate;
 import com.example.dnspod.entry.RecordUpdate;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,7 @@ import java.util.Map;
  * @date 2021/12/20
  */
 @Service("domainService")
+@Slf4j
 public class DomainService {
 
     @Resource
@@ -60,6 +62,7 @@ public class DomainService {
         if(records.getValue().equals(curentIp)){
             return "无需更新:" +mappint;
         }
+        log.info("当前IP{}不等于记录IP{}", curentIp, records.getValue());
         map.put("record_id", records.getId());
         String post = HttpUtil.post(domainConfig.getRecoredModify(), map);
         RecordUpdate recordUpdate = JSONUtil.toBean(post, RecordUpdate.class);
