@@ -1,0 +1,21 @@
+token: ${dnstoken}
+format: json
+
+ipaddress:
+  real: http://checkip.dyndns.com/
+  reg: "\\d{0,3}\\.\\d{0,3}\\.\\d{0,3}\\.\\d{0,3}"
+
+recored:
+  list: https://dnsapi.cn/Record.List
+  create: https://dnsapi.cn/Record.Create
+  modify: https://dnsapi.cn/Record.Modify
+  delete: https://dnsapi.cn/Record.Remove
+  info: https://dnsapi.cn/Record.Info
+
+domain:
+  main: ${dnsmain}
+  sub: ${dnssub}
+
+server:
+  port: 8090
+
